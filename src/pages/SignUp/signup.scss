@@ -1,0 +1,49 @@
+.form-content {
+    width: 471px;
+    height: auto;
+}
+
+.form-content p {
+    margin-bottom: 67px;
+}
+
+.btn-register {
+    width: 100%;
+    margin-top: 38px;
+    height: 67px;
+    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.55);
+    border: none;
+    border-radius: 33px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.input-container-2 input::placeholder {
+    color: #e0e0e0;
+    font-size: 12px;
+}
+
+.form-content form label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 17px;
+}
+
+.form-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.form-content form input::placeholder {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}

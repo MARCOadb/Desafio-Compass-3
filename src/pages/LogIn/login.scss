@@ -1,0 +1,119 @@
+* {
+    color: #E0E0E0;
+}
+
+.content {
+    background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.form-container,
+.img-container {
+    width: 50%;
+    max-width: 50%;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-content {
+    width: 417px;
+    height: auto;
+}
+
+.form-content h1 {
+    font-size: 60px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.form-content span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-content h2 {
+    margin-top: 135px;
+    size: 30px;
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.form-content form img {
+    margin-left: 18px;
+    // position: relative;
+    // top: 7px;
+    width: 20px;
+}
+
+.form-content input {
+    width: 379px;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    background-color: #26292C;
+    color: #E0E0E0;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 20px;
+    letter-spacing: 1px;
+}
+
+.input-container input::placeholder {
+    color: #E0E0E0;
+    font-size: 16px;
+}
+
+.btn-login {
+    width: 379px;
+    height: 67px;
+    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.55);
+    border: none;
+    margin-top: 82px;
+    border-radius: 33px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.pc-img {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.logo-img {
+    position: absolute;
+    z-index: 2;
+    right: 230px;
+    width: 450px;
+    top: 36px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 33px;
+}
+
+.icon-user,
+.icon-lock {
+    transition: all 0.5s ease-in-out;
+}
+
+// .input-container input[name='name']:focus~.icon-user {
+//     transform: translateX(-60px)
+// }
+
+// .input-container input[name='password']:focus~.icon-lock {
+//     transform: translateX(-60px)
+// }
