@@ -1,3 +1,7 @@
+.content {
+    color: #E0E0E0;
+}
+
 .form-content {
     width: 471px;
     height: auto;
@@ -17,6 +21,13 @@
     border-radius: 33px;
     font-size: 32px;
     font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    color: #E0E0E0;
+}
+
+.btn-register:hover {
+    background: linear-gradient(90deg, #be2203 0%, #85230f 100%);
+    transform: scale(1.05);
 }
 
 .input-container-2 input::placeholder {
@@ -46,4 +57,11 @@
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+.input-container-2 svg {
+    position: absolute;
+    left: 670px;
+    cursor: pointer;
+    transition: all 0.3s;
 }

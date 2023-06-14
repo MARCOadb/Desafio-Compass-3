@@ -1,13 +1,9 @@
-* {
-    color: #E0E0E0;
-}
-
 .content {
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     display: flex;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    //overflow: hidden;
 }
 
 .form-container,
@@ -32,11 +28,13 @@
     font-size: 60px;
     font-weight: 400;
     margin-bottom: 18px;
+    color: #E0E0E0;
 }
 
 .form-content span {
     font-size: 16px;
     font-weight: 400;
+    color: #E0E0E0;
 }
 
 .form-content h2 {
@@ -44,12 +42,11 @@
     size: 30px;
     font-weight: 400;
     margin-bottom: 32px;
+    color: #E0E0E0;
 }
 
 .form-content form img {
     margin-left: 18px;
-    // position: relative;
-    // top: 7px;
     width: 20px;
 }
 
@@ -64,11 +61,17 @@
     font-weight: 400;
     padding: 20px;
     letter-spacing: 1px;
+    outline: none;
 }
 
 .input-container input::placeholder {
     color: #E0E0E0;
     font-size: 16px;
+}
+
+.input-container svg {
+    position: absolute;
+    left: 200px;
 }
 
 .btn-login {
@@ -81,6 +84,13 @@
     border-radius: 33px;
     font-size: 32px;
     font-weight: 700;
+    color: #E0E0E0;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-login:hover {
+    background: linear-gradient(90deg, #be2203 0%, #85230f 100%);
+    transform: scale(1.05);
 }
 
 .pc-img {
@@ -109,11 +119,3 @@
 .icon-lock {
     transition: all 0.5s ease-in-out;
 }
-
-// .input-container input[name='name']:focus~.icon-user {
-//     transform: translateX(-60px)
-// }
-
-// .input-container input[name='password']:focus~.icon-lock {
-//     transform: translateX(-60px)
-// }

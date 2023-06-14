@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
+
 const firebaseConfig = {
     apiKey: "AIzaSyD4BbRxM7TNt-nWAZIZa5XVP2pz8LerMwg",
     authDomain: "planner-a5fda.firebaseapp.com",
