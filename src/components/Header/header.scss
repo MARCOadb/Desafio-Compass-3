@@ -1,0 +1,119 @@
+.header {
+    width: 100%;
+    height: 130px;
+    background-color: #fff;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 5;
+}
+
+.banner {
+    width: 588px;
+    height: 64px;
+    background-color: #000;
+    border-radius: 0 15px 15px 0;
+    color: #fff;
+    top: 32px;
+    position: absolute;
+    padding-left: 24px;
+    padding-top: 6px;
+
+    h1 {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+.day-time {
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 777px;
+    top: 31px;
+    color: #3B3E45;
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 27px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    span {
+        font-size: 20px;
+        font-weight: 400;
+    }
+}
+
+.wheater {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 26px;
+    right: 589px;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+
+        h1 {
+            font-size: 48px;
+            color: #222;
+        }
+
+        img {
+            margin-top: 10px;
+        }
+
+    }
+}
+
+.logout {
+    cursor: pointer;
+
+    a img {
+        position: absolute;
+        right: 23px;
+        top: 20px;
+    }
+
+    .voltar {
+        position: absolute;
+        top: 65px;
+        right: 42px;
+        width: 22px;
+    }
+
+    span {
+        font-size: 17px;
+        font-weight: 400;
+        color: #000;
+        position: absolute;
+        top: 83px;
+        right: 27px;
+        transition: all 0.2s;
+    }
+
+    div:hover {
+        span {
+            color: rgb(240, 72, 72);
+            font-weight: 700;
+            transform: scale(1.05);
+        }
+    }
+}

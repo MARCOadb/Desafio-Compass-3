@@ -6,6 +6,8 @@ import { toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from '../../contexts/auth'
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { MdKeyboardArrowUp } from 'react-icons/md'
+import countries from '../../services/countries.json'
 
 export default function SignUp() {
     const [firstName, setFirstName] = useState('')
@@ -48,9 +50,8 @@ export default function SignUp() {
                     if (password === confirmPass) {
                         setFirstName(capitalize(firstName))
                         setLastName(capitalize(lastName))
-                        setCountry(capitalize(country))
                         setCity(capitalize(city))
-                        await SignUp(firstName, lastName, birthDate, country, city, email, password, confirmPass)
+                        await SignUp(capitalize(firstName), capitalize(lastName), birthDate, country, capitalize(city), email, password, confirmPass)
                     } else {
                         toast.error('As senhas são diferentes!')
                         setConfirmPass('')
@@ -78,7 +79,7 @@ export default function SignUp() {
     }
 
     function validPassword(senha) {
-        const regex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{8,}$/;
+        const regex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{6,}$/;
         setPasswordError(false)
         return regex.test(senha);
     }
@@ -137,19 +138,27 @@ export default function SignUp() {
                                 type="date"
                                 placeholder='MM/DD/YYYY'
                                 value={birthDate}
+                                className='custom-date-input'
                                 onChange={(e) => setBirthDate(e.target.value)}
                                 style={{ border: `1px solid ${ageError ? '#E9B425' : '#fff'}` }}
                             />
                         </div>
 
-                        <div className='input-container-2'>
+                        <div className='input-container-2 country-field'>
                             <label>Country</label>
-                            <input
-                                type="text"
+                            <select
                                 placeholder='Your Country'
                                 value={country}
                                 onChange={(e) => setCountry(e.target.value)}
-                            />
+                            >
+                                <option value=''>Selecione seu país</option>
+                                {countries.map((country) => (
+                                    <option key={country.sigla} value={country.nome_pais}>
+                                        {country.nome_pais}
+                                    </option>
+                                ))}
+                            </select>
+                            <MdKeyboardArrowUp size={24} />
                         </div>
 
                         <div className='input-container-2'>
@@ -174,7 +183,7 @@ export default function SignUp() {
                             />
                         </div>
 
-                        <div className='input-container-2'>
+                        <div className='input-container-2 password-field'>
                             <label>password</label>
                             <input
                                 type={showPassword ? 'text' : 'password'}

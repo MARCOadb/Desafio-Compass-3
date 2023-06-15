@@ -1,17 +1,16 @@
 import { AuthContext } from '../../contexts/auth'
 import { useContext } from 'react'
+import Header from '../../components/Header'
+import './dashboard.scss'
 
 export default function Dashboard() {
-    const { logout } = useContext(AuthContext)
-
-    async function handleLogout() {
-        await logout()
-    }
 
     return (
         <div>
-            <h1>Dashboard</h1>
-            <button onClick={handleLogout}>Sair da conta</button>
+            <Header />
+            <div className='planner'>
+                <h1>Dashboard</h1>
+            </div>
         </div>
     )
 }

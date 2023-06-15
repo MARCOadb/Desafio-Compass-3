@@ -115,6 +115,7 @@ function AuthProvider({ children }) {
                         storageUser(data)
                         setUser(data)
                         setEmailError(false)
+                        setOpenModal(false)
                         navigate('/')
                         loadingAuth(false)
                     })
@@ -126,8 +127,8 @@ function AuthProvider({ children }) {
                         setEmailError(true)
                         break
                     case 'auth/invalid-email':
-                        toast.error('E-mail inválido!')
                         setEmailError(true)
+                        toast.error('E-mail inválido!')
                         break
                 }
                 setLoadingAuth(false)

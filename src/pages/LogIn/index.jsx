@@ -15,7 +15,7 @@ export default function LogIn() {
     const [desUser, setDesUser] = useState(0)
     const [desLock, setDesLock] = useState(0)
 
-    const { LogIn, emailError, passwordError, openModal, loadingAuth } = useContext(AuthContext)
+    const { LogIn, emailError, passwordError, openModal, setOpenModal, loadingAuth } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
 
     async function handleLogIn(e) {

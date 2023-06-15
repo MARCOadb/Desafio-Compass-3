@@ -30,7 +30,8 @@
     transform: scale(1.05);
 }
 
-.input-container-2 input::placeholder {
+.input-container-2 input::placeholder,
+.input-container-2 select::placeholder {
     color: #e0e0e0;
     font-size: 12px;
 }
@@ -46,22 +47,50 @@
     flex-direction: column;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .input-container-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 18px;
+    position: relative;
 }
 
-.form-content form input::placeholder {
+.form-content select {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding-right: 30px;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+select option {
+    font-size: 16px;
+    line-height: 60px;
+}
+
+.country-field svg {
+    color: #fff;
+    position: absolute;
+    left: 430px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.form-content form input::placeholder,
+.form-content form select::placeholder {
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 1px;
 }
 
-.input-container-2 svg {
+.password-field svg {
     position: absolute;
-    left: 670px;
+    left: 433px;
     cursor: pointer;
     transition: all 0.3s;
 }
