@@ -1,5 +1,128 @@
 .planner {
-    background-color: #E5E5E5;
+    background-color: #fffffff2;
     width: 100%;
     height: calc(100vh - 130px);
+    padding-top: 35px;
+}
+
+.add-task-area {
+    width: calc(100% - 48px);
+    height: 45px;
+    margin: 0 auto 22px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputs-area {
+    width: auto;
+    height: 100%;
+    display: flex;
+    gap: 3px;
+    position: relative;
+
+    input {
+        width: 391px;
+        height: 100%;
+        border: 1px solid #FECE00;
+        border-radius: 10px;
+        outline: none;
+        padding-left: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000000B2;
+    }
+
+    input::placeholder {
+        font-size: 14px;
+        font-weight: 400;
+        color: #000000B2;
+    }
+
+    select {
+        width: 391px;
+        height: 100%;
+        border: 1px solid #FECE00;
+        border-radius: 10px;
+        outline: none;
+        padding-left: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000000B2;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    #arrow-day {
+        position: absolute;
+        pointer-events: none;
+        left: 605px;
+        cursor: pointer;
+        top: 10px;
+    }
+
+    #arrow-time {
+        position: absolute;
+        pointer-events: none;
+        left: 730px;
+        cursor: pointer;
+        top: 10px;
+    }
+
+
+    #day-week {
+        width: 240px;
+    }
+
+    #time {
+        width: 120px;
+    }
+}
+
+.function-area {
+    width: auto;
+    height: 100%;
+    display: flex;
+    gap: 24px;
+
+    #add {
+        background-color: #00BA88;
+        color: #fff;
+        width: 200px;
+        height: 44px;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s;
+    }
+
+    #add:hover {
+        transform: scale(1.05);
+        background-color: #199171;
+    }
+
+    #remove {
+        background-color: #FF3D1F;
+        color: #fff;
+        width: 200px;
+        height: 44px;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s;
+    }
+
+    #remove:hover {
+        transform: scale(1.05);
+        background-color: #ac2f1c;
+    }
 }

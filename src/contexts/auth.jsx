@@ -86,7 +86,7 @@ function AuthProvider({ children }) {
     }
 
     // Cadastrar novo usuário
-    async function SignUp(firstName, lastName, birthDate, country, city, email, password, confirmPass) {
+    async function SignUp(firstName, lastName, birthDate, country, city, email, password) {
         setLoadingAuth(true)
 
         await createUserWithEmailAndPassword(auth, email, password)
@@ -127,7 +127,9 @@ function AuthProvider({ children }) {
                         setEmailError(true)
                         break
                     case 'auth/invalid-email':
-                        setEmailError(true)
+                        //setEmailError(true)
+                        try { alert(emailError) }
+                        catch { setEmailError(true) }
                         toast.error('E-mail inválido!')
                         break
                 }

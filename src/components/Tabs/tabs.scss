@@ -1,0 +1,54 @@
+.tabs-container {
+    width: 1750px;
+    height: 33px;
+    display: flex;
+    margin-left: 125px;
+    margin-right: 45px;
+    gap: 3px;
+}
+
+.tab {
+    width: 240px;
+    height: 100%;
+    border-radius: 9px 9px 0px 0px;
+    transition: all 0.3s;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+    padding-top: 3px;
+    padding-left: 6px;
+    cursor: pointer;
+}
+
+.active {
+    width: 290px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.monday {
+    background: #FF0024;
+}
+
+.tuesday {
+    background: #FF8000;
+}
+
+.wednesday {
+    background: #FFCE00;
+}
+
+.thursday {
+    background: #ff0024b3;
+}
+
+.friday {
+    background: #ff8000b3;
+}
+
+.saturday {
+    background: #ffce00b3;
+}
+
+.sunday {
+    background: #ff002480;
+}
