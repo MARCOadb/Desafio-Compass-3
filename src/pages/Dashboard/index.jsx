@@ -83,6 +83,10 @@ export default function Dashboard() {
             })
     }
 
+    function deleteTask() {
+        alert('oi')
+    }
+
     return (
         <div>
             <Header />
@@ -101,11 +105,11 @@ export default function Dashboard() {
                         </select><MdKeyboardArrowDown size={24} id='arrow-time' />
                     </div>
                     <div className="function-area">
-                        <button id="add">
+                        <button id="add" type='submit'>
                             <img src={plus} alt="Mais" />
                             Add to calendar
                         </button>
-                        <button id="remove">
+                        <button id="remove" onClick={() => deleteTask()}>
                             <img src={minus} alt="Menos" />
                             Delete all
                         </button>
@@ -114,7 +118,6 @@ export default function Dashboard() {
 
                 <Tabs onTabClick={(selectedDay) => setDay(selectedDay)} />
                 <Tasks day={day} />
-
 
             </div>
         </div>

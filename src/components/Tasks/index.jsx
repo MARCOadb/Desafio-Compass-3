@@ -50,6 +50,8 @@ export default function Tasks(props) {
     }
 
 
+
+
     return (
         <div className='content-dashboard'>
             <div className="time">Time</div>
@@ -75,3 +77,6 @@ export default function Tasks(props) {
         </div>
     )
 }
+
+//o botao de deletar tarefa individual pode ser feito aqui
+// o de delete all que tem que ser feito no outro
