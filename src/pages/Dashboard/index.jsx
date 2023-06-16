@@ -1,25 +1,21 @@
 import { useState, useEffect } from 'react'
 import Header from '../../components/Header'
 import './dashboard.scss'
+import Tasks from '../../components/Tasks'
 import Tabs from '../../components/Tabs'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import minus from '../../assets/icons/Shape-1.svg'
 import plus from '../../assets/icons/Shape.svg'
 import { toast } from 'react-toastify'
-import { auth, db } from '../../services/firebaseConnection'
+import { db } from '../../services/firebaseConnection'
 import {
     addDoc,
     collection,
-    onSnapshot,
-    query,
-    orderBy,
-    where
 } from 'firebase/firestore'
 
 export default function Dashboard() {
     const [day, setDay] = useState('Monday')
     const [user, setUser] = useState({})
-    const [tasks, setTasks] = useState([])
 
     const days = [
         "Monday",
@@ -34,35 +30,6 @@ export default function Dashboard() {
     const [description, setDescription] = useState('')
     const [addDayTask, setAddDayTask] = useState(getCurrentDay())
     const [time, setTime] = useState('00:00')
-
-    useEffect(() => {
-        async function loadTarefas() {
-            const userData = JSON.parse(localStorage.getItem('@planner'))
-            setUser(userData)
-
-            if (userData) {
-                const tarefaRef = collection(db, 'tasks')
-                const q = query(tarefaRef, orderBy('hora', 'desc'), where('userUid', '==', userData?.uid))
-                const unsub = onSnapshot(q, (snapshot) => {
-                    let list = []
-
-                    snapshot.forEach((doc) => {
-                        list.push({
-                            id: doc.id,
-                            tarefa: doc.data().tarefa,
-                            dia: doc.data().dia,
-                            hora: doc.data().hora,
-                            userUid: doc.data().userUid
-                        })
-                    })
-                    setTasks(list)
-                    console.log(list)
-                })
-            }
-        }
-
-        loadTarefas()
-    }, [])
 
     function getCurrentDay() {
         const date = new Date()
@@ -82,6 +49,15 @@ export default function Dashboard() {
         }
         return options;
     }
+
+    useEffect(() => {
+        async function loadTarefas() {
+            const userData = JSON.parse(localStorage.getItem('@planner'))
+            setUser(userData)
+        }
+
+        loadTarefas()
+    }, [])
 
     async function handleRegisterTask(e) {
         e.preventDefault()
@@ -110,6 +86,7 @@ export default function Dashboard() {
     return (
         <div>
             <Header />
+
             <div className='planner'>
                 <form className='add-task-area' onSubmit={handleRegisterTask}>
                     <div className="inputs-area">
@@ -136,8 +113,9 @@ export default function Dashboard() {
                 </form>
 
                 <Tabs onTabClick={(selectedDay) => setDay(selectedDay)} />
-                <h1>Resto do Dashboard</h1>
-                <h2>{day}</h2>
+                <Tasks day={day} />
+
+
             </div>
         </div>
     )

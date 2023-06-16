@@ -1,0 +1,150 @@
+.content-dashboard {
+    width: auto;
+    height: 815px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    padding-left: 24px;
+    margin-top: 6px;
+}
+
+.content-dashboard::-webkit-scrollbar {
+    height: 8px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+}
+
+.content-dashboard::-webkit-scrollbar-thumb {
+    background-color: #a1a4a8;
+    border-radius: 8px;
+}
+
+.content-dashboard::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
+}
+
+.time {
+    width: 85px;
+    height: 75px;
+    background-color: #fff;
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3B3E45;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.task-time {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    border-radius: 10px;
+}
+
+.tasks-container {
+    margin-top: 14px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.task-line {
+    width: auto;
+    height: 85px;
+    display: flex;
+}
+
+.task-info {
+    width: 512px;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #FFFFFF;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.12);
+    border-radius: 15px;
+    backdrop-filter: blur(10.5px);
+    margin-left: 17px;
+    position: relative;
+    padding-left: 27px;
+    padding-right: 90px;
+    display: flex;
+    text-align: justify;
+    align-items: center;
+
+    .sidebar {
+        height: 100%;
+        width: 14px;
+        border-radius: 10px 0 0 10px;
+        position: absolute;
+        left: -0.52px;
+    }
+
+    button {
+        width: 57px;
+        height: 25px;
+        background-color: #FF3D1F;
+        padding: 10px 12px;
+        border-radius: 4px;
+        position: absolute;
+        top: 6px;
+        right: 7px;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+    }
+
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.monday {
+    background: #FF0024;
+}
+
+.tuesday {
+    background: #FF8000;
+}
+
+.wednesday {
+    background: #FFCE00;
+}
+
+.thursday {
+    background: #ff0024b3;
+}
+
+.friday {
+    background: #ff8000b3;
+}
+
+.saturday {
+    background: #ffce00b3;
+}
+
+.sunday {
+    background: #ff002480;
+}
+
+.logo-uol-img {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
