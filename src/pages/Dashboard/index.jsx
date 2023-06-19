@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Header from '../../components/Header'
 import './dashboard.scss'
 import Tasks from '../../components/Tasks'
@@ -14,8 +14,8 @@ import {
 } from 'firebase/firestore'
 
 export default function Dashboard() {
-    const [day, setDay] = useState('Monday')
     const [user, setUser] = useState({})
+    const tasksRef = useRef()
 
     const days = [
         "Monday",
@@ -27,15 +27,18 @@ export default function Dashboard() {
         "Sunday",
     ]
 
-    const [description, setDescription] = useState('')
-    const [addDayTask, setAddDayTask] = useState(getCurrentDay())
-    const [time, setTime] = useState('00:00')
-
     function getCurrentDay() {
         const date = new Date()
         const dayWeek = date.getDay()
         return days[dayWeek - 1]
     }
+
+    const [day, setDay] = useState(getCurrentDay())
+
+    const [description, setDescription] = useState('')
+    const [addDayTask, setAddDayTask] = useState(getCurrentDay())
+    const [time, setTime] = useState('00:00')
+
 
     const generateTimeOptions = () => {
         const options = []
@@ -51,12 +54,12 @@ export default function Dashboard() {
     }
 
     useEffect(() => {
-        async function loadTarefas() {
+        async function loadUser() {
             const userData = JSON.parse(localStorage.getItem('@planner'))
             setUser(userData)
         }
 
-        loadTarefas()
+        loadUser()
     }, [])
 
     async function handleRegisterTask(e) {
@@ -83,8 +86,10 @@ export default function Dashboard() {
             })
     }
 
-    function deleteTask() {
-        alert('oi')
+    async function handleDeleteAll(day) {
+        if (tasksRef.current) {
+            await tasksRef.current.deleteAll(day)
+        }
     }
 
     return (
@@ -92,6 +97,7 @@ export default function Dashboard() {
             <Header />
 
             <div className='planner'>
+                <h1>{day}</h1>
                 <form className='add-task-area' onSubmit={handleRegisterTask}>
                     <div className="inputs-area">
                         <input type="text" placeholder='Task or issue' value={description} onChange={(e) => setDescription(e.target.value)} />
@@ -109,7 +115,7 @@ export default function Dashboard() {
                             <img src={plus} alt="Mais" />
                             Add to calendar
                         </button>
-                        <button id="remove" onClick={() => deleteTask()}>
+                        <button id="remove" type='button' onClick={() => handleDeleteAll(day)}>
                             <img src={minus} alt="Menos" />
                             Delete all
                         </button>
@@ -117,7 +123,7 @@ export default function Dashboard() {
                 </form>
 
                 <Tabs onTabClick={(selectedDay) => setDay(selectedDay)} />
-                <Tasks day={day} />
+                <Tasks day={day} ref={tasksRef} />
 
             </div>
         </div>

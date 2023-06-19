@@ -2,8 +2,6 @@ import "./tabs.scss"
 import React, { useState } from "react"
 
 function Tabs({ onTabClick }) {
-    const [activeTab, setActiveTab] = useState(0)
-
     const days = [
         "Monday",
         "Tuesday",
@@ -13,6 +11,14 @@ function Tabs({ onTabClick }) {
         "Saturday",
         "Sunday",
     ]
+
+    function getCurrentDay() {
+        const date = new Date()
+        const dayWeek = date.getDay()
+        return dayWeek - 1
+    }
+
+    const [activeTab, setActiveTab] = useState(getCurrentDay())
 
     function handleTabClick(day, index) {
         if (index !== activeTab) {

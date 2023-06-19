@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import background from '../../assets/images/Group 5 1.png'
 import { db } from '../../services/firebaseConnection'
 import {
@@ -6,20 +6,24 @@ import {
     onSnapshot,
     query,
     orderBy,
-    where
+    where,
+    doc,
+    deleteDoc
 } from 'firebase/firestore'
 import './tasks.scss'
+import { toast } from 'react-toastify'
 
-export default function Tasks(props) {
+export default forwardRef(function Tasks(props, ref) {
     const { day } = props
 
     const [tasks, setTasks] = useState([])
     const [user, setUser] = useState({})
 
+
     useEffect(() => {
+        const userData = JSON.parse(localStorage.getItem('@planner'))
+        setUser(userData)
         async function loadTarefas() {
-            const userData = JSON.parse(localStorage.getItem('@planner'))
-            setUser(userData)
 
             if (userData) {
                 const tarefaRef = collection(db, 'tasks')
@@ -36,12 +40,13 @@ export default function Tasks(props) {
                             userUid: doc.data().userUid
                         })
                     })
+                    console.log('teste som')
                     setTasks(list)
                 })
             }
         }
 
-        loadTarefas()
+        loadTarefas();
     }, [day])
 
     function formatTime(time) {
@@ -49,8 +54,27 @@ export default function Tasks(props) {
         return `${splitedTime[0]}h${splitedTime[1]}m`
     }
 
+    async function deleteTask(id) {
+        const docRef = doc(db, 'tasks', id)
+        await deleteDoc(docRef)
+    }
 
+    // async function deleteAll(day) {
+    //     console.log('--------------')
+    //     const tarefaRef = collection(db, 'tasks')
+    //     const q = query(tarefaRef, where('userUid', '==', user.uid), where('dia', '==', day))
+    //     const unsub = onSnapshot(q, (snapshot) => {
 
+    //         snapshot.forEach(async (doc) => {
+    //             await deleteDoc(doc.ref)
+    //         })
+    //     })
+    //     toast.success('Tarefas do dia deletadas!')
+    // }
+
+    // useImperativeHandle(ref, () => ({
+    //     deleteAll: deleteAll
+    // }));
 
     return (
         <div className='content-dashboard'>
@@ -64,7 +88,7 @@ export default function Tasks(props) {
                         <div className="task-info">
                             <div className={`sidebar ${day.toLowerCase()}`}></div>
                             <span>{task.tarefa}</span>
-                            <button>Delete</button>
+                            <button onClick={() => deleteTask(task.id)}>Delete</button>
                         </div>
 
                     </div>
@@ -73,10 +97,9 @@ export default function Tasks(props) {
 
 
             <img src={background} alt="Logo Compass UOL" className='logo-uol-img' />
-            {/* <h1>Componente TASKS {day}</h1> */}
         </div>
     )
-}
+})
 
 //o botao de deletar tarefa individual pode ser feito aqui
 // o de delete all que tem que ser feito no outro
