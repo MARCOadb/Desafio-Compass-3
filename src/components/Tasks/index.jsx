@@ -8,7 +8,8 @@ import {
     orderBy,
     where,
     doc,
-    deleteDoc
+    deleteDoc,
+    getDocs
 } from 'firebase/firestore'
 import './tasks.scss'
 import { toast } from 'react-toastify'
@@ -17,6 +18,7 @@ export default forwardRef(function Tasks(props, ref) {
     const { day } = props
 
     const [tasks, setTasks] = useState([])
+    const [tasksTemp, setTasksTemp] = useState([])
     const [user, setUser] = useState({})
 
 
@@ -40,14 +42,23 @@ export default forwardRef(function Tasks(props, ref) {
                             userUid: doc.data().userUid
                         })
                     })
-                    console.log('teste som')
-                    setTasks(list)
+                    setTasksTemp(list)
                 })
             }
         }
 
         loadTarefas();
     }, [day])
+
+    useEffect(() => {
+        if (tasksTemp.length > 0) {
+            if (tasksTemp[0].dia === day) {
+                setTasks(tasksTemp);
+            }
+        } else {
+            setTasks([]);
+        }
+    }, [tasksTemp]);
 
     function formatTime(time) {
         const splitedTime = time.split(':')
@@ -59,22 +70,25 @@ export default forwardRef(function Tasks(props, ref) {
         await deleteDoc(docRef)
     }
 
-    // async function deleteAll(day) {
-    //     console.log('--------------')
-    //     const tarefaRef = collection(db, 'tasks')
-    //     const q = query(tarefaRef, where('userUid', '==', user.uid), where('dia', '==', day))
-    //     const unsub = onSnapshot(q, (snapshot) => {
+    async function deleteAll(day) {
+        const tarefaRef = collection(db, 'tasks')
+        const q = query(tarefaRef, where('userUid', '==', user.uid), where('dia', '==', day))
 
-    //         snapshot.forEach(async (doc) => {
-    //             await deleteDoc(doc.ref)
-    //         })
-    //     })
-    //     toast.success('Tarefas do dia deletadas!')
-    // }
+        try {
+            const querySnapshot = await getDocs(q);
+            const deletePromises = querySnapshot.docs.map((doc) =>
+                deleteDoc(doc.ref)
+            );
+            await Promise.all(deletePromises);
+            toast.success("Tarefas do dia deletadas!");
+        } catch (error) {
+            toast.error("Erro ao deletar tarefas!");
+        }
+    }
 
-    // useImperativeHandle(ref, () => ({
-    //     deleteAll: deleteAll
-    // }));
+    useImperativeHandle(ref, () => ({
+        deleteAll: deleteAll
+    }));
 
     return (
         <div className='content-dashboard'>

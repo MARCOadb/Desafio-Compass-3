@@ -97,7 +97,6 @@ export default function Dashboard() {
             <Header />
 
             <div className='planner'>
-                <h1>{day}</h1>
                 <form className='add-task-area' onSubmit={handleRegisterTask}>
                     <div className="inputs-area">
                         <input type="text" placeholder='Task or issue' value={description} onChange={(e) => setDescription(e.target.value)} />
