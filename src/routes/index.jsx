@@ -9,7 +9,7 @@ import Private from "./Private";
 function RoutesApp() {
     return (
         <Routes>
-            <Route path="/" element={<LogIn />} />
+            <Route path="/Planner" element={<LogIn />} />
             <Route path="/register" element={<SignUp />} />
 
             <Route path="/dashboard" element={<Private><Dashboard /></Private>} />
