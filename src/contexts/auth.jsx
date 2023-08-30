@@ -127,9 +127,7 @@ function AuthProvider({ children }) {
                         setEmailError(true)
                         break
                     case 'auth/invalid-email':
-                        //setEmailError(true)
-                        try { alert(emailError) }
-                        catch { setEmailError(true) }
+                        setEmailError(true)
                         toast.error('E-mail inválido!')
                         break
                 }
