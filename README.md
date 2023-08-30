@@ -1,2 +1,2 @@
 # Desafio-Compass-3
-Terceiro desafio PB Compass UOL - Planner
+Terceiro desafio PB Compass - Planner
