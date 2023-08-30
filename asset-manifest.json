@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/%7BPlanner%7D/static/css/main.537b0a01.css",
+    "main.js": "/%7BPlanner%7D/static/js/main.fecf787d.js",
+    "static/media/inicial_img.png": "/%7BPlanner%7D/static/media/inicial_img.660e50f1fff4f8359cd6.png",
+    "static/media/Group 5 1.png": "/%7BPlanner%7D/static/media/Group 5 1.d3a54820c940f9c10468.png",
+    "static/media/Type=Colored positive 1.svg": "/%7BPlanner%7D/static/media/Type=Colored positive 1.81ea2a9148cb85a49248669713e24554.svg",
+    "static/media/arrow-right-north 1.svg": "/%7BPlanner%7D/static/media/arrow-right-north 1.2f38670c42de7c53bbece144bc6c8596.svg",
+    "static/media/icon-password.svg": "/%7BPlanner%7D/static/media/icon-password.c77f0694a78dd0b2ff585efefc743386.svg",
+    "index.html": "/%7BPlanner%7D/index.html",
+    "static/media/icon-user.svg": "/%7BPlanner%7D/static/media/icon-user.548bc6190889df02ee13160a972bd7f5.svg",
+    "static/media/Shape-1.svg": "/%7BPlanner%7D/static/media/Shape-1.c855e242426730913a3a4928660b7549.svg",
+    "static/media/Shape.svg": "/%7BPlanner%7D/static/media/Shape.2335bcc415eb14fcbf0457830c0dc253.svg",
+    "main.537b0a01.css.map": "/%7BPlanner%7D/static/css/main.537b0a01.css.map",
+    "main.fecf787d.js.map": "/%7BPlanner%7D/static/js/main.fecf787d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.537b0a01.css",
+    "static/js/main.fecf787d.js"
+  ]
+}
